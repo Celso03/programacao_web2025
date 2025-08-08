@@ -1,2 +1,2 @@
 # programacao_web2025
-repositório para práticar 
+repositório para os conteudos de programação web 
