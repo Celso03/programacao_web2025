@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Calculadora Simples</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, select, button { margin: 5px; padding: 8px; font-size: 16px; }
+    #resultado {
+      margin-top: 10px; 
+      padding: 10px; 
+      font-weight: bold;
+      border-radius: 5px;
+      text-align: center;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Calculadora</h2>
+
+  <input type="number" id="valor1" placeholder="Valor 1">
+  <select id="operacao">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <input type="number" id="valor2" placeholder="Valor 2">
+
+  <br>
+  <button onclick="calcular()">Calcular</button>
+
+  <div id="resultado">Resultado: </div>
+
+  <script>
+    function calcular() {
+      let v1 = parseFloat(document.getElementById("valor1").value);
+      let v2 = parseFloat(document.getElementById("valor2").value);
+      let op = document.getElementById("operacao").value;
+      let res;
+
+      switch (op) {
+        case "+":
+          res = v1 + v2;
+          break;
+        case "-":
+          res = v1 - v2;
+          break;
+        case "*":
+          res = v1 * v2;
+          break;
+        case "/":
+          if (v2 === 0) {
+            alert("Não é possível dividir por zero!");
+            return;
+          }
+          res = v1 / v2;
+          break;
+        default:
+          res = NaN;
+      }
+
+      let resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.textContent = "Resultado: " + res;
+
+      if (res > 0) {
+        resultadoDiv.style.background = "lightgreen";
+      } else if (res < 0) {
+        resultadoDiv.style.background = "lightcoral";
+      } else {
+        resultadoDiv.style.background = "lightgray";
+      }
+    }
+  </script>
+</body>
+</html>
