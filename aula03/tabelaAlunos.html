@@ -60,7 +60,6 @@
   <button onclick="calcularMediasLinhas()">Calcular Médias (por aluno)</button>
 
   <script>
-    // === MÉDIA POR COLUNA (já corrigido da versão anterior) ===
     function calcularMediasColunas() {
       let tabela = document.getElementById("tabelaNotas");
       let linhas = tabela.tBodies[0].rows;
@@ -95,7 +94,7 @@
       }
     }
 
-    // === MÉDIA POR LINHA (cada aluno) ===
+    
     function calcularMediasLinhas() {
       let tabela = document.getElementById("tabelaNotas");
       let linhas = tabela.tBodies[0].rows;
@@ -123,8 +122,6 @@
           linhas[i].insertCell().innerText = media.toFixed(1);
         }
       }
-
-      // se a linha de médias já existir, garante que ela tenha uma célula no final
       let ultima = tabela.tBodies[0].lastElementChild;
       if (ultima.cells[0].innerText === "Média") {
         if (ultima.cells.length <= numColunasNotas) {
